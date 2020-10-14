@@ -1,4 +1,4 @@
-function initiate {
+function initiate() {
   moves = 0;
   dealCards(levels[currentLevel].cards);
   document.querySelector("#mov").innerText = "00";
