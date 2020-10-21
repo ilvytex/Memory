@@ -1,0 +1,24 @@
+:root {
+  --bg: var(--gradient1);
+  --font: "Poppins", sans-serif;
+  --font-display: "Poppins", sans-serif;
+  /* --purpleblue: #e94057;
+  --lighterblue: #f27121; */
+  --purpleblue: #4068e9;
+  --lighterblue: #21a9f2;
+  --gradient: linear-gradient(35deg, var(--lighterblue), var(--purpleblue));
+  --darkbg: rgb(34, 34, 34);
+  --lightbg: rgb(100, 99, 99);
+  --gradient1: linear-gradient(180deg, var(--lightbg), var(--darkbg));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto;
+  min-height: 100vh;
+  background-image: var(--bg);
+  font-family: var(--font);
+}

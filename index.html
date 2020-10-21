@@ -7,108 +7,107 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <title>Let's play Memory!</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Archivo|Archivo+Narrow:400,600"
-      rel="stylesheet"
-    />
-<link href="css/estilos.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link href="css/site.css" rel="stylesheet" />
+    <link href="css/estilos.css" rel="stylesheet" />
   </head>
 
   <body>
-    <div id="welcomeMessage" class="welcomeMessage">
-      <h2> Let's Play Memory! </h2>
-      <div class="welcomeMessage-buttons">
-        <button id="juego-normal">Regular Mode</button>
+    <div id="bienvenida" class="bienvenida">
+      <h1>Let's play Memory!</h1>
+      <div class="bienvenida-botones">
+        <button id="juego-normal" class="button is-primary is-large">Regular Mode</button>
         <button id="juego-relax">Relax Mode</button>
       </div>
     </div>
-    <header class="header">
-      <div class="counter">
-        <div class="counter-item">
-          <h4 class="header-titulo">Moves</h4>
-          <div class="header-num">
+    <header class="cabecera">
+      <div class="contadores"> 
+        <div class="contador-item">
+          <h4 class="cabecera-titulo">Moves</h4>
+          <div class="cabecera-num">
             <span id="mov">00</span>/<span id="mov-total">20</span>
           </div>
         </div>
-        <div id="chrono" class="counter-item">
-          <h4 class="header-titulo">Time</h4>
-          <div class="header-num">
-            <span id="minutes">00</span>:<span id="seconds">00</span>
+        <div id="cronometro" class="contador-item">
+          <h4 class="cabecera-titulo">Time</h4>
+          <div class="cabecera-num">
+            <span id="minutos">00</span>:<span id="segundos">00</span>
           </div>
         </div>
       </div>
-      <div class="level">
-        <h4 class="header-titulo">Level</h4>
-        <div class="header-num"><span id="level">01</span></div>
+      <div class="nivel">
+        <h4 class="cabecera-titulo">Level</h4>
+        <div class="cabecera-num"><span id="nivel">01</span></div>
       </div>
-      <button id="show-level" class="show-level">…</button>
+      <button id="control-nivel" class="control-nivel">+</button>
     </header>
     <main>
-      <div id="table" class="table"></div>
-      <div id="levelUp" class="sube-level">
+      <div id="mesa" class="mesa"></div>
+      <div id="subeNivel" class="sube-nivel">
         <div class="modal">
-          <h2>Well done!</h2>
+          <h2>👏🏻 Well Done! 👏🏻</h2>
           <button id="subir">Next level</button>
-          <button class="restart">Restart</button>
+          <button class="reiniciar">Restart</button>
         </div>
       </div>
       <div id="gameOver" class="game-over">
         <div class="modal">
-          <h2>¡Oh no!</h2>
-          <p>You ran out of moves 😭</p>
-          <button class="restart">Restart</button>
+          <h2>Oh no!</h2>
+          <p>💩 You've run out of moves 💩</p>
+          <button class="reiniciar">Restart</button>
         </div>
       </div>
-      <div id="timeUp" class="game-over">
+      <div id="timeOver" class="game-over">
         <div class="modal">
-          <h2>¡Oh no!</h2>
-          <p>You ran out of time 😭</p>
-          <button class="restart">Restart</button>
+          <h2>Oh no!</h2>
+          <p>💩 You've run out of time 💩</p>
+          <button class="reiniciar">Restart</button>
         </div>
       </div>
       <div id="endGame" class="end-game">
         <div class="modal">
           <h2>Congratulations!</h2>
-          <p>You mastered all levels 🏆</p>
-          <button class="restart">Restart</button>
+          <p>🌟🌟🌟 You mastered all levels 🌟🌟🌟</p>
+          <button class="reiniciar">Restart</button>
         </div>
       </div>
     </main>
-    <div class="level-selector">
-      <button id="close-level" class="close-level">&times;</button>
+    <div class="selecciona-nivel">
+      <button id="cierra-niveles" class="cierra-niveles">&times;</button>
       <ul></ul>
     </div>
 
     <audio
-      src="assets/gotRight.mp3"
-      class="sound"
-      id="sound-gotRight"
+      src="sonidos/acierto.mp3"
+      class="sonido"
+      id="sonido-acierto"
       preload="auto"
     ></audio>
     <audio
-      src="assets/gotWrong.mp3"
-      class="sound"
-      id="sound-gotWrong"
+      src="sonidos/error.mp3"
+      class="sonido"
+      id="sonido-error"
       preload="auto"
     ></audio>
     <audio
-      src="assets/card.mp3"
-      class="sound"
-      id="card-sound"
+      src="sonidos/carta.mp3"
+      class="sonido"
+      id="sonido-carta"
       preload="auto"
     ></audio>
 
-    <script src="js/globalvariables.js"></script>
-    <script src="js/flipcompare.js"></script>
-    <script src="js/dealcards.js"></script>
-    <script src="js/check.js"></script>
-    <script src="js/counter.js"></script>
-    <script src="js/chrono.js"></script>
-    <script src="js/finalize.js"></script>
-    <script src="js/changelevels.js"></script>
-    <script src="js/gameover.js"></script>
-    <script src="js/levelsmenu.js"></script>
-    <script src="js/starter.js"></script>
-    <script src="js/gamebegins.js"></script>
+    <script src="js/variables-globales.js"></script>
+    <script src="js/descubrir-comparar.js"></script>
+    <script src="js/baraja-reparte.js"></script>
+    <script src="js/acierto-error.js"></script>
+    <script src="js/contador.js"></script>
+    <script src="js/cronometro.js"></script>
+    <script src="js/finalizar.js"></script>
+    <script src="js/cambia-nivel.js"></script>
+    <script src="js/game-over.js"></script>
+    <script src="js/menu-niveles.js"></script>
+    <script src="js/iniciar.js"></script>
+    <script src="js/comienza-juego.js"></script>
   </body>
 </html>

@@ -1,28 +1,11 @@
-:root {
-  --bg: #fafafa;
-  --font: "Archivo", sans-serif;
-  --font-display: "Archivo Narrow", sans-serif;
-  --hotpink: #e94057;
-  --orange: #f27121;
-  --gradient: linear-gradient(35deg, var(--orange), var(--hotpink));
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-size: 2rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: auto;
-  min-height: 100vh;
-  background: var(--bg);
-  font-family: var(--font);
 }
 
-.welcomeMessage {
+.bienvenida {
   display: none;
   position: absolute;
   top: 0;
@@ -37,59 +20,59 @@ body {
   z-index: 1;
 }
 
-.welcomeMessage.visible {
+.bienvenida.visible {
   display: flex;
+  z-index: 6;
 }
 
-.welcomeMessage h2 {
+.bienvenida h1 {
   font-family: var(--font-display);
-  text-transform: uppercase;
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-top: 0;
 }
 
-.welcomeMessage-buttons {
+.bienvenida-botones {
   display: flex;
 }
 
-.welcomeMessage button {
+.bienvenida button {
   padding: 1rem 3rem;
   margin: 0 1rem;
   min-width: 20rem;
 }
 
-.header {
+.cabecera {
   padding: 0.5rem 2rem;
-  background: white;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
+  background: rgb(37, 39, 53);
+  box-shadow: 1px 1px 5px rgba(218, 214, 214, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.header-titulo {
+.cabecera-titulo {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.8rem;
   text-transform: uppercase;
   line-height: 1;
-  margin: 0;
-  color: rgba(0, 0, 0, 0.4);
+  margin: 4px 0 12px 8px;
+  color: var(--lighterblue);
 }
 
-.header-num {
+.cabecera-num {
   font-family: var(--font-display);
-  color: var(--hotpink);
+  color: rgb(208, 211, 215);
   font-weight: 400;
   font-size: 3.5rem;
   line-height: 0.9;
 }
 
-.counter {
+.contadores {
   display: flex;
 }
 
-.counter-item {
+.contador-item {
   margin-right: 2rem;
 }
 
@@ -98,9 +81,11 @@ main {
   display: flex;
   justify-content: center;
   position: relative;
+  background-image: var(--gradient1);
+  ;
 }
 
-.table {
+.mesa {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -109,7 +94,7 @@ main {
   margin: auto;
 }
 
-.card {
+.tarjeta {
   width: 6rem;
   height: 6rem;
   margin: 0.5rem;
@@ -123,7 +108,7 @@ main {
   transform-style: preserve-3d;
 }
 
-.card__fill {
+.tarjeta__contenido {
   position: absolute;
   left: 0;
   right: 0;
@@ -141,15 +126,15 @@ main {
   padding-top: 0.4rem;
 }
 
-.card__fill::selection {
+.tarjeta__contenido::selection {
   background: transparent;
 }
 
-.card.uncovered {
+.tarjeta.descubierta {
   transform: rotateY(-180deg);
 }
 
-@keyframes gotWrong {
+@keyframes error {
   10%, 90% {
     transform: rotateY(-180deg) translateX(-1px);
   }
@@ -164,7 +149,7 @@ main {
   }
 }
 
-@keyframes gotRight {
+@keyframes acierto {
   from {
     transform: rotateY(-180deg) scale3d(1, 1, 1);
     opacity: 1;
@@ -179,29 +164,29 @@ main {
   }
 }
 
-.gotRight {
+.acertada {
   pointer-events: none;
 }
 
-.gotRight .card__fill {
-  animation: gotRight 1.3s ease-in-out forwards;
+.acertada .tarjeta__contenido {
+  animation: acierto 1.3s ease-in-out forwards;
 }
 
-.gotWrong {
-  animation: gotWrong 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+.error {
+  animation: error 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
-.level-up, .game-over, .end-game {
+.sube-nivel, .game-over, .end-game {
   display: none;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: var(--gradient);
+  /* background-image: var(--gradient); */
 }
 
-.level-up.visible, .game-over.visible, .end-game.visible {
+.sube-nivel.visible, .game-over.visible, .end-game.visible {
   display: flex;
 }
 
@@ -219,7 +204,7 @@ main {
 }
 
 .modal h2 {
-  color: var(--orange);
+  color: #666;
   font-family: var(--font-display);
   margin: 0;
 }
@@ -237,12 +222,12 @@ button {
   border: 0;
   background-image: var(--gradient);
   padding: 0.75rem 4rem;
-  border-radius: 2rem;
+  border-radius: 5rem;
   color: white;
   font-family: var(--font-display);
-  font-weight: 600;
+  font-weight: 400;
   text-transform: uppercase;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1;
   transition: 0.3s;
 }
@@ -252,8 +237,8 @@ button:hover, button:focus {
   outline: 0;
 }
 
-.modal .restart {
-  color: var(--hotpink);
+.modal .reiniciar {
+  color: #4a4a4a;
   background: transparent;
   border: 0;
   text-transform: capitalize;
@@ -262,68 +247,78 @@ button:hover, button:focus {
   margin: 0;
 }
 
-.sound {
+.sonido {
   display: none;
 }
 
-.hidden-chrono {
+.cronometro-oculto {
   display: none;
 }
 
-.show-level {
+.control-nivel {
   position: absolute;
-  font-size: .8rem;
+  font-size: 1rem;
   top: 2.9rem;
   right: .5rem;
   padding: 0;
-  width: 1.1rem;
-  height: 1.1rem;
-  line-height: .68rem;
-  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  /* line-height: .68rem;
+  display: flex; */
   justify-content: center;
-  background: var(--hotpink);
+  background: var(--purpleblue);
+  margin-top: 1.3rem;
+  z-index: 5;
+  border-style: solid;
+  border-color: hsl(0, 0%, 50%);
+  border-width: 2px;
+  /* filter: drop-shadow(0px 1px 4px white); */
 }
 
-.hidden-controls {
+.control-oculto {
   display: none;
 }
 
-.level-selector {
-  background-color: var(--hotpink);
+.selecciona-nivel {
+  background-color: var(--purpleblue);
   position: fixed;
-  width: 250px;
+  width: 200px;
+  max-height: 70vh;
   right: 0;
   top: 0;
   bottom: 0;
-  transform: translateX(250px);
+  transform: translateX(200px);
   transition: transform .3s;
   padding: 1rem 2rem;
+  border-radius: 1rem 0 0 1rem;
+  font-size: normal;
 }
 
-.level-selector.visible {
+.selecciona-nivel.visible {
   transform: translateX(0);
+  z-index: 6;
 }
 
-.level-selector button {
+.selecciona-nivel button {
   background: transparent;
   padding: 0;
 }
 
-.level-selector ul {
+.selecciona-nivel ul {
   list-style: none;
   padding-left: 0;
 }
 
-.level-selector li {
+.selecciona-nivel li {
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.close-level {
+.cierra-niveles {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
   font-size: 2rem;
   font-family: sans-serif;
-  font-weight: 300;
+  font-weight: normal;
 }
